@@ -1,4 +1,5 @@
-# VCTEFD
+## VCTEFD
+
 Various connection test experiments for developers
 
 #### 1. Rabbitmq 几种发消息形式  参考 https://rabbitmq.com/getstarted.html 前面5种类型
@@ -13,11 +14,10 @@ Various connection test experiments for developers
 
 ###### 4.集群搭建 转化为镜像模式
 
+----
 
 
-
-#### 2.RocketMq 几种发消息形式  参考 https://rabbitmq.com/getstarted.html 前面5种类型
-
+#### 2.RocketMq
 
 
 ###### 1.NameServer
@@ -28,7 +28,7 @@ Various connection test experiments for developers
 
 ###### 4.集群搭建
 
-
+----
 
 
 
@@ -41,10 +41,10 @@ Various connection test experiments for developers
 
 ###### 3.高可用 高流量 缓存等场景
 
+----
 
 
-
-#### 4. MySQL play https://github.com/ailin-licslan/Redis-Ace
+#### 4. MySQL play 
 
 
 ###### 1.MySQL 基础知识
@@ -53,7 +53,7 @@ Various connection test experiments for developers
 
 ###### 3.高可用 高流量 高并发 索引理解
 
-
+----
 
 
 #### 5. Netty play https://github.com/ailin-licslan/Netty-licslan
@@ -65,8 +65,9 @@ Various connection test experiments for developers
 
 ###### 3.模拟千万访问连接
 
+----
 
-#### 6. Docker play https://github.com/ailin-licslan/Netty-licslan
+#### 6. Docker play 
 
 
 ###### 1.start a docker quickly
@@ -74,3 +75,25 @@ Various connection test experiments for developers
 ###### 2.docker run -d ...
 
 ###### 3.docker exec -it containerId /bin/bash
+
+----
+
+#### 7.CICD play
+
+
+###### 1.start a docker quickly
+
+###### 2.docker run -d ...
+
+###### 3.docker exec -it containerId /bin/bash
+
+----
+
+#### 8.k8s play
+
+
+###### 1.=======
+
+###### 2..=======
+
+###### 3..=======
