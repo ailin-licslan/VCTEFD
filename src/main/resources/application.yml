@@ -1,0 +1,16 @@
+server:
+  port: 8888
+spring:
+  #???????
+  application:
+    name: rabbitmq-play
+  #??rabbitMq ???
+  rabbitmq:
+    username: admin
+    password: admin
+    #??host ?????,??server??host
+    virtual-host: /
+    addresses: 192.168.58.128:8071,192.168.58.128:8072,192.168.58.128:8073,192.168.58.128:8074
+    listener:
+      simple:
+        prefetch: 1  # 每次只能拿一条消息  处理完了 再去拿  能者多劳
