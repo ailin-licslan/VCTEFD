@@ -1,16 +1,23 @@
 server:
   port: 8888
 spring:
-  #???????
+  #appliction name
   application:
     name: rabbitmq-play
-  #??rabbitMq ???
+  #rabbit mq
   rabbitmq:
     username: admin
     password: admin
-    #??host ?????,??server??host
+    # host
     virtual-host: /
     addresses: 192.168.58.128:8071,192.168.58.128:8072,192.168.58.128:8073,192.168.58.128:8074
     listener:
       simple:
         prefetch: 1  # 每次只能拿一条消息  处理完了 再去拿  能者多劳
+
+# mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.58.128:3306/licslan?useUnicode=true&characterEncoding=utf8&serverTimezoneGMT%2B8&useSSL=true&rewriteBatchedStatements=true
+    username: root
+    password: 123456
