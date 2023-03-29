@@ -14,9 +14,8 @@ import java.util.UUID;
 import java.util.concurrent.TimeoutException;
 
 /**
- *
  * @author licslan
- * */
+ */
 @RestController
 public class DirectSmController {
 
@@ -55,13 +54,20 @@ public class DirectSmController {
         rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", map);
     }
 
+    /**
+     * Direct Exchange: This exchange type routes messages based on a direct match between the routing key and
+     * the binding key. When a message is sent to a direct exchange, the exchange compares the message's routing
+     * key to the binding keys of all the queues that are bound to it. If the routing key matches a binding key
+     * exactly, the message is routed to the corresponding queue. If multiple queues are bound to the exchange
+     * with the same binding key, the message is delivered to each of them.
+     */
 
     @GetMapping("/direct")
     public String sendMesAMQP() throws IOException, TimeoutException {
-        String exchangeName= "direct-exchage";
+        String exchangeName = "direct-exchage";
         String mes = "send to book binding key pls";
         //rabbitTemplate.convertAndSend(exchangeName,"english",mes);
-        rabbitTemplate.convertAndSend(exchangeName,"book",mes);
+        rabbitTemplate.convertAndSend(exchangeName, "book", mes);
         return "direct!";
     }
 

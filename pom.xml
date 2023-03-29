@@ -24,7 +24,60 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
+			<version>3.0.4</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+		</dependency>
+
+		<!--在Elasticsearch7.15版本之后，Elasticsearch官方将它的高级客户端RestHighLevelClient标记为弃用状态。
+		同时推出了全新的Java API客户端Elasticsearch Java API Client，该客户端也将在Elasticsearch8.0及以后版本
+		中成为官方推荐使用的客户端。
+		Elasticsearch Java API Client 支持除 Vector tile search API 和 Find structure API 之外的所有
+		Elasticsearch API。且支持所有API数据类型，并且不再有原始JsonValue属性。它是针对Elasticsearch8.0及之
+		后版本的客户端，目前Elasticsearch已经更新至8.0.1，所以我们需要学习新的Elasticsearch Java API Client的使用方法。-->
+
+
+		<!--<dependency>
+			<groupId>org.elasticsearch.client</groupId>
+			<artifactId>elasticsearch-rest-high-level-client</artifactId>
+		</dependency>-->
+
+<!--		<dependency>
+			<groupId>co.elastic.clients</groupId>
+			<artifactId>elasticsearch-java</artifactId>
+			<version>8.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jakarta.json</groupId>
+			<artifactId>jakarta.json-api</artifactId>
+			<version>2.0.1</version>
+		</dependency>-->
+
+
+<!--		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.12.3</version>
+		</dependency>-->
+
+
+
+
+		<!--FIX: springboot2.x redis Lettuce版本使用时报错
+		Failed to instantiate [org.springframework.data.redis.connection.lettuce.
+		LettuceConnectionFactory]: Factory method 'redisConnectionFactory' threw exception;
+		nested exception is java.lang.NoClassDefFoundError: org/apache/commons/pool2/impl/
+		GenericObjectPoolConfig-->
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-pool2</artifactId>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>

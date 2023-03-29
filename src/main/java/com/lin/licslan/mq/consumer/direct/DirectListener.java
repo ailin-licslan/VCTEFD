@@ -17,7 +17,7 @@ public class DirectListener {
     @RabbitListener(bindings = @QueueBinding(
             //队列2
             value = @Queue(name = "direct-queue1"),
-            //交换机
+            //交换机  默认direct交换机
             exchange = @Exchange(name = "direct-exchage",type = ExchangeTypes.DIRECT),
             //binding key
             key = {"book","game"}
@@ -31,7 +31,7 @@ public class DirectListener {
     @RabbitListener(bindings = @QueueBinding(
             //队列2
             value = @Queue(name = "direct-queue2"),
-            //交换机
+            //交换机  默认direct交换机
             exchange = @Exchange(name = "direct-exchage",type = ExchangeTypes.DIRECT),
             //binding key
             key = {"book","english"}

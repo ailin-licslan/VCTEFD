@@ -12,9 +12,8 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- *
  * @author licslan
- * */
+ */
 @RestController
 public class PublishSimpleController {
 
@@ -30,9 +29,9 @@ public class PublishSimpleController {
         Channel channel = connection.createChannel();
         String name = "LICSLAN";
         String mes = "hello rabbitmq! from simple model";
-        channel.queueDeclare(name,false,false,false,null);
-        channel.basicPublish("",name,null,mes.getBytes());
-        System.out.println("send mes :"+mes);
+        channel.queueDeclare(name, false, false, false, null);
+        channel.basicPublish("", name, null, mes.getBytes());
+        System.out.println("send mes :" + mes);
         channel.close();
         connection.close();
         return "simple ok!";
@@ -44,11 +43,24 @@ public class PublishSimpleController {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
+
+    /**
+     * Simple Queue Model is a messaging pattern used to implement a one-to-one communication between a
+     * producer (or sender) and a consumer (or receiver). In this model, the producer sends messages to
+     * a queue, and the consumer receives messages from the queue in the order they were sent. The producer
+     * and consumer can be implemented on the same or different machines.
+     * <p>
+     * In Simple Queue Model, the producer sends a message to a specific queue, and the consumer receives
+     * messages from the same queue. This model is useful when there is only one consumer for a specific queue,
+     * and the order of messages is important. The Simple Queue Model is commonly used in systems that require
+     * reliable message delivery and where messages need to be processed in a specific order.
+     */
+
     @GetMapping("/simpleSendAMQP")
     public String sendMesAMQP() throws IOException, TimeoutException {
-        String queueNmae= "LICSLAN";
+        String queueNmae = "LICSLAN";
         String mes = "use AMQP send mes to me!";
-        rabbitTemplate.convertAndSend(queueNmae,mes);
+        rabbitTemplate.convertAndSend(queueNmae, mes);
         return "AMQP";
     }
 }

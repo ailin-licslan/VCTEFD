@@ -1,4 +1,4 @@
-package com.lin.licslan.webcontroller;
+package com.lin.licslan.webtest;
 
 
 import org.springframework.web.bind.annotation.GetMapping;

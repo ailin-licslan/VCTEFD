@@ -8,12 +8,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- *
  * @author licslan
- * */
+ */
 @Configuration
 public class DirectRabbitConfig {
-
 
 
     //队列 起名：TestDirectQueue
@@ -24,22 +22,21 @@ public class DirectRabbitConfig {
         // autoDelete:是否自动删除，当没有生产者或者消费者使用此队列，该队列会自动删除。
         //   return new Queue("TestDirectQueue",true,true,false);
         //一般设置一下队列的持久化就好,其余两个就是默认false
-        return new Queue("licslan-test",true);
+        return new Queue("licslan-test", true);
     }
 
     //Direct交换机 起名：TestDirectExchange
     @Bean
     public DirectExchange testDirectExchange() {
         //  return new DirectExchange("TestDirectExchange",true,true);
-        return new DirectExchange("TestDirectExchange",true,false);
+        return new DirectExchange("TestDirectExchange", true, false);
     }
 
     //绑定  将队列和交换机绑定, 并设置用于匹配键：TestDirectRouting
     @Bean
-    Binding bindingDirect(Queue testDirectQueue,DirectExchange testDirectExchange) {
+    Binding bindingDirect(Queue testDirectQueue, DirectExchange testDirectExchange) {
         return BindingBuilder.bind(testDirectQueue).to(testDirectExchange).with("TestDirectRouting");
     }
-
 
 
     @Bean
@@ -48,22 +45,7 @@ public class DirectRabbitConfig {
     }
 
 
-
-
-
-
-
     //下面基于rabbit mq listener注解的方式声明  已经移到DirectListener
-
-
-
-
-
-
-
-
-
-
 
 
 }

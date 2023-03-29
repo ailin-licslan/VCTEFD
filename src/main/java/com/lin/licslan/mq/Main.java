@@ -7,7 +7,7 @@ public class Main {
      * 1.简单队列模型、   一个消息只能被一个消费者消费  不重复    The simplest thing that does something
      * 2.工作队列模型     一个消息只能被一个消费者消费  不重复    Distributing tasks among workers (the competing consumers pattern)
      * 3.发布订阅模式     一个消息被被多个消费者都可以消费        Sending messages to many consumers at once
-     *   3.1 Fanout (广播)     Receiving messages selectively
+     *   3.1 Fanout (广播)    Receiving messages selectively
      *   3.2 Direct (路由)    Sending messages to many consumers at once
      *   3.3 Topic  (主题)    Receiving messages based on a pattern (topics)
      *

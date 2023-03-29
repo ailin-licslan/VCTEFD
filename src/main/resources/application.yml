@@ -1,23 +1,70 @@
+########################### Basic - config #################################
 server:
   port: 8888
 spring:
-  #appliction name
   application:
-    name: rabbitmq-play
-  #rabbit mq
+    name: X-PLAY  # X:  各种中间件   PLAY:  CRUD 测试 包括环境搭建 简单的数据处理 基础原理学习等
+
+
+
+########################### Rabbitmq - cluster #################################
   rabbitmq:
     username: admin
     password: admin
     # host
     virtual-host: /
-    addresses: 192.168.58.128:8071,192.168.58.128:8072,192.168.58.128:8073,192.168.58.128:8074
+    addresses: 192.168.58.128:8071,192.168.58.128:8072,192.168.58.128:8073
     listener:
       simple:
         prefetch: 1  # 每次只能拿一条消息  处理完了 再去拿  能者多劳
 
-# mysql
+
+
+########################### MySQL #################################
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://192.168.58.128:3306/licslan?useUnicode=true&characterEncoding=utf8&serverTimezoneGMT%2B8&useSSL=true&rewriteBatchedStatements=true
     username: root
     password: 123456
+
+
+
+
+########################### Redis - cluster ##########################
+  redis: #redis配置
+    lettuce: #lettuce客户端配置
+      pool: #连接池配置
+        max-active: 50 # 连接池最大连接数（使用负值表示没有限制） 默认 8
+        max-wait: 10 # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
+        max-idle: 20 # 连接池中的最大空闲连接 默认 8
+        min-idle: 10 # 连接池中的最小空闲连接 默认 0
+      cluster:
+        refresh: #集群刷新
+          adaptive: true #自动刷新集群 默认false关闭
+    #          period: 10M #定时刷新
+    timeout: 1000 # 连接超时时间（毫秒）
+    cluster: #集群配置
+      nodes: #集群节点
+        - 192.168.58.128:6380
+        - 192.168.58.128:6381
+        - 192.168.58.128:6382
+        - 192.168.58.128:6383
+        - 192.168.58.128:6384
+        - 192.168.58.128:6385
+      max-redirects: 3 #集群中重定向最大次数
+
+
+
+########################### TODO es cluster ##########################
+
+  elasticsearch:
+    rest:
+      uris: 192.168.58.128:9200  #,192.168.58.128:9201,192.168.58.128:9202
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+        connection-timeout: 1000           #---连接超时时间(默认1s)
+        read-timeout: 1000                 #---读取超时时间(默认30s)
+
+
