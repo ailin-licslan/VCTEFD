@@ -13,7 +13,7 @@ spring:
     password: admin
     # host
     virtual-host: /
-    addresses: 192.168.58.131:8071,192.168.58.131:8072,192.168.58.131:8073
+    addresses: 192.168.58.128:8071,192.168.58.128:8072,192.168.58.128:8073
     listener:
       simple:
         prefetch: 1  # 每次只能拿一条消息  处理完了 再去拿  能者多劳
@@ -21,7 +21,7 @@ spring:
 ########################### MySQL ##############################################
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.58.131:3306/licslan?useUnicode=true&characterEncoding=utf8&serverTimezoneGMT%2B8&useSSL=true&rewriteBatchedStatements=true
+    url: jdbc:mysql://192.168.58.128:3306/licslan?useUnicode=true&characterEncoding=utf8&serverTimezoneGMT%2B8&useSSL=true&rewriteBatchedStatements=true
     username: root
     password: 123456
 
@@ -43,19 +43,19 @@ spring:
     timeout: 1000 # 连接超时时间（毫秒）
     cluster: #集群配置
       nodes: #集群节点
-        - 192.168.58.131:6380
-        - 192.168.58.131:6381
-        - 192.168.58.131:6382
-        - 192.168.58.131:6383
-        - 192.168.58.131:6384
-        - 192.168.58.131:6385
+        - 192.168.58.128:6380
+        - 192.168.58.128:6381
+        - 192.168.58.128:6382
+        - 192.168.58.128:6383
+        - 192.168.58.128:6384
+        - 192.168.58.128:6385
       max-redirects: 3 #集群中重定向最大次数
 
 
 
 ########################### Es cluster #######################################
   elasticsearch:
-    uris: http://192.168.58.131:9200,http://192.168.58.131:9201,http://192.168.58.131:9202
+    uris: http://192.168.58.128:9200,http://192.168.58.128:9201,http://192.168.58.128:9202
 
 
 

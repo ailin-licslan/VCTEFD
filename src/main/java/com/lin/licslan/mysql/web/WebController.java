@@ -5,7 +5,9 @@ import cn.hutool.json.JSONUtil;
 import com.lin.licslan.mysql.entity.User;
 import com.lin.licslan.mysql.service.CrudService;
 import org.springframework.web.bind.annotation.*;
-
+/**
+ * @author licslan
+ */
 @RestController
 public class WebController {
 

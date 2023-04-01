@@ -15,8 +15,11 @@ import java.util.concurrent.TimeoutException;
 public class WorkController {
 
 
-    @Autowired
-    private RabbitTemplate rabbitTemplate;
+    private final RabbitTemplate rabbitTemplate;
+
+    public WorkController(RabbitTemplate rabbitTemplate) {
+        this.rabbitTemplate = rabbitTemplate;
+    }
 
     /**
      * Work Queue Model, on the other hand, is a messaging pattern used to implement a one-to-many communication

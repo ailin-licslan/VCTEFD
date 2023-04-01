@@ -5,7 +5,9 @@ import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+/**
+ * @author licslan
+ */
 @Mapper
 @Repository
 public interface UserMapper {

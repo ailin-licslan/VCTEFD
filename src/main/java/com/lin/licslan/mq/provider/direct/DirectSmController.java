@@ -1,5 +1,7 @@
 package com.lin.licslan.mq.provider.direct;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,11 +46,12 @@ public class DirectSmController {
 
     private void extracted() {
         String messageId = String.valueOf(UUID.randomUUID());
-        String messageData = "test message, hello! vvvvvvvvvv";
+        //String messageData = "你好吗？";
+        Student lin = new Student(17, "lin");
         String createTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         Map<String, Object> map = new HashMap<>();
         map.put("messageId", messageId);
-        map.put("messageData", messageData);
+        map.put("messageData", lin);
         map.put("createTime", createTime);
         //将消息携带绑定键值：TestDirectRouting 发送到交换机TestDirectExchange
         rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", map);
@@ -69,6 +72,13 @@ public class DirectSmController {
         //rabbitTemplate.convertAndSend(exchangeName,"english",mes);
         rabbitTemplate.convertAndSend(exchangeName, "book", mes);
         return "direct!";
+    }
+
+    @Data
+    @AllArgsConstructor
+    class Student{
+        private int age;
+        private String name;
     }
 
 

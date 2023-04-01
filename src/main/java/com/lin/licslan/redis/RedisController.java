@@ -24,8 +24,8 @@ public class RedisController {
      * 注解@postmapping
      */
     @GetMapping("/save")
-    public String saveToRedis() {
-        redisTemplate.opsForValue().set("licslan", 20);
+    public String saveToRedis(@RequestParam("key")String key) {
+        redisTemplate.opsForValue().set(key, 20000);
         return "ok";
     }
 
